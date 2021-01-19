@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    img,
+    video {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+</style>
+
+<script>
+
+    function pressButton() {
+        var elem = document.getElementById("video1");
+        var elem2 = document.getElementById("imagen1");
+        elem.style.visibility = 'visible';
+        elem2.style.visibility = 'hidden';
+        openFullscreen(elem);
+        elem.play();
+    }
+
+    function openFullscreen(elem) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+
+</script>
+
+<body style="background-color: black">
+
+    <div>
+        <img id="imagen1" src="play_button.png" alt="PLAY" height="256" width="256" onclick="pressButton()">
+    </div>
+    <div style="visibility: hidden;">
+        <video id="video1" controls>
+            <source src="gato_tom_full.mp4" type="video/mp4">
+            Your browser does not support HTML video. FUCK OFF!!!!!
+        </video>
+    </div>
+
+</body>
+
+</html>
